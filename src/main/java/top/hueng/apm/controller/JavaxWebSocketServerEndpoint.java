@@ -1,8 +1,9 @@
 package top.hueng.apm.controller;
 
+import org.springframework.context.annotation.DependsOn;
 import org.springframework.stereotype.Component;
-import top.hueng.apm.common.SessionManager;
 import top.hueng.apm.SpringUtil;
+import top.hueng.apm.common.SessionManager;
 
 import javax.websocket.*;
 import javax.websocket.server.PathParam;
@@ -10,8 +11,8 @@ import javax.websocket.server.ServerEndpoint;
 
 @Component
 @ServerEndpoint("/websocket")
+@DependsOn("springUtil")
 public class JavaxWebSocketServerEndpoint {
-
     SessionManager sessionManager = SpringUtil.getBean(SessionManager.class);
 
     @OnOpen
