@@ -54,7 +54,7 @@ public class DiskServiceImpl extends ServiceImpl<DiskMapper, Disk> implements Di
     public Disk toDisk(StringBuffer stringBuffer){
         // /dev/vda1          40189  5546     32907  15% /
         //“\S”表示任何非空白字符，“+”表示重复前面的内容一次或多次，“\s”表示任何空白字符，可能包括空格、制表符等
-        Pattern pattern = Pattern.compile("(\\S+)\\s+(\\S+)\\s+(\\S+)\\s+(\\S+)\\s+(\\S+)\\s+(\\S+)");
+        Pattern pattern = Pattern.compile("(\\S+)\\s+(\\S+)\\s+(\\S+)\\s+(\\S+)\\s+(\\S+)\\s+(\\S+)",Pattern.MULTILINE);
         Matcher matcher = pattern.matcher(stringBuffer);
         Disk disk = null;
         if (matcher.find()) {
